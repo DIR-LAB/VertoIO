@@ -1,0 +1,30 @@
+model: megatron_deepspeed_custom
+
+framework: pytorch
+
+workflow:
+  generate_data: False
+  train: True
+
+dataset:
+  data_folder: /mnt/hasanfs/dlio_data/megatron_deepspeed_custom
+  format: hdf5
+  num_files_train: 1
+  num_samples_per_file: 65536
+  record_length: 2097152
+
+reader:
+  data_loader: pytorch
+  prefetch_size: 1
+  batch_size: 1024
+  read_threads: 4
+  file_shuffle: seed
+  sample_shuffle: seed
+
+train:
+  epochs: 1
+  seed_change_epoch: True
+  computation_time: 0.001
+
+output:
+  folder: /root/localssd/dlio_tests/rpc_tuning_tests/megatron_deepspeed_custom

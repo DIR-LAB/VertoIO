@@ -1,0 +1,9 @@
+# enable DXT modules, which are off by default
+MOD_ENABLE      DXT_POSIX,DXT_MPIIO
+
+# allocate 65536 file records for POSIX and MPI-IO modules
+# (darshan only allocates 65536 per-module by default)
+MAX_RECORDS     65536      POSIX,MPI-IO,DXT_POSIX,DXT_MPIIO
+
+# bump up Darshan's default memory usage to 512 MiB
+MODMEM  512

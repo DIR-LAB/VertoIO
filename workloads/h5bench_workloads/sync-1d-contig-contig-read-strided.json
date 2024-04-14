@@ -1,0 +1,41 @@
+{
+    "mpi": {
+        "command": "mpirun",
+        "ranks": "4",
+        "configuration": "-np 4"
+    },
+    "vol": {
+
+    },
+    "file-system": {
+        "lustre": {
+
+        }
+    },
+    "directory": "/mnt/hasanfs/h5_patterns/sync/sync-write-1d-contig-contig-read-full",
+    "benchmarks": [
+        {
+            "benchmark": "read",
+            "file": "test.h5",
+            "configuration": {
+                "MEM_PATTERN": "CONTIG",
+                "FILE_PATTERN": "STRIDED",
+                "READ_OPTION": "STRIDED",
+                "COLLECTIVE_DATA": "YES",
+                "COLLECTIVE_METADATA": "YES",
+                "TIMESTEPS": "5",
+                "DELAYED_CLOSE_TIMESTEPS": "2",
+                "EMULATED_COMPUTE_TIME_PER_TIMESTEP": "1 s",
+                "NUM_DIMS": "1",
+                "DIM_1": "134217728",
+                "DIM_2": "1",
+                "DIM_3": "1",
+                "STRIDE_SIZE": "8",
+                "BLOCK_SIZE": "8",
+                "BLOCK_CNT": "8388608",
+                "CSV_FILE": "sync-1d-contig-contig-read-strided-output.csv",
+                "MODE": "SYNC"
+            }
+        }
+    ]
+}
